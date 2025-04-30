@@ -1,37 +1,48 @@
 NAME = libftprintf.a
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
 
-SRCS = ft_printf.c \
-       ft_utils.c \
-       ft_handle_chars.c \
-       ft_handle_numbers.c \
-       ft_handle_hex.c \
-       ft_parse_flags.c
+LIBFT_DIR = libft
+LIBFT_A = $(LIBFT_DIR)/libft.a
 
-BONUS_SRCS = $(SRCS)
+INCLUDES = -I. -I$(LIBFT_DIR)
 
-OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+SRCS_BONUS = ft_printf_bonus.c \
+             ft_printf_parse_bonus.c \
+             ft_printf_process_bonus.c \
+             ft_printf_handlers_char_bonus.c \
+             ft_printf_handlers_nbr_bonus.c \
+             ft_printf_handlers_hexptr_bonus.c \
+             ft_printf_nbr_utils_bonus.c \
+             ft_printf_utils_bonus.c \
+             ft_printf_prefix_bonus.c
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS_BONUS) $(LIBFT_A)
+	cp $(LIBFT_A) $(NAME)
+	$(AR) $(NAME) $(OBJS_BONUS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(NAME)
+
+%.o: %.c ft_printf_bonus.h $(LIBFT_A)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(LIBFT_A):
+	@$(MAKE) -sC $(LIBFT_DIR) all
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@$(MAKE) -sC $(LIBFT_DIR) clean
+	$(RM) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@$(MAKE) -sC $(LIBFT_DIR) fclean
+	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus libft
