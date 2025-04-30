@@ -33,16 +33,16 @@ bonus: $(NAME)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT_A):
-	@$(MAKE) -sC $(LIBFT_DIR) all
+	$(MAKE) -C $(LIBFT_DIR) all
 
 clean:
-	@$(MAKE) -sC $(LIBFT_DIR) clean
+	$(MAKE) -C $(LIBFT_DIR) clean
 	$(RM) $(OBJS_BONUS)
 
 fclean: clean
-	@$(MAKE) -sC $(LIBFT_DIR) fclean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libft
+.PHONY: all clean fclean re bonus

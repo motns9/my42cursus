@@ -13,7 +13,7 @@ int	ft_write_char(char c, t_format_info *info)
 	return (0);
 }
 
-int	ft_write_str(char *s, int len, t_format_info *info)
+int	ft_write_str(const char *s, int len, t_format_info *info)
 {
 	int	i;
 
