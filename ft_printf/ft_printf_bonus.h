@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/02 13:59:06 by msbita            #+#    #+#             */
+/*   Updated: 2025/05/02 13:59:30 by msbita           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_BONUS_H
 # define FT_PRINTF_BONUS_H
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include "libft/libft.h"
 
 typedef struct s_format_info

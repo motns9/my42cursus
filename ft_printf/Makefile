@@ -9,27 +9,37 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 
 INCLUDES = -I. -I$(LIBFT_DIR)
 
+SRCS = ft_printf.c \
+       ft_utils.c \
+       ft_handle_char.c \
+       ft_handle_nbr.c \
+       ft_handle_hex.c
+
+OBJS = $(SRCS:.c=.o)
+
 SRCS_BONUS = ft_printf_bonus.c \
-             ft_printf_parse_bonus.c \
-             ft_printf_process_bonus.c \
-             ft_printf_handlers_char_bonus.c \
-             ft_printf_handlers_nbr_bonus.c \
-             ft_printf_handlers_hexptr_bonus.c \
-             ft_printf_nbr_utils_bonus.c \
-             ft_printf_utils_bonus.c \
-             ft_printf_prefix_bonus.c
+             ft_parse_format_bonus.c \
+             ft_process_format_bonus.c \
+             ft_handle_char_bonus.c \
+             ft_handle_nbr_bonus.c \
+             ft_handle_hex_bonus.c \
+             ft_utils_bonus.c \
+             ft_nbr_utils_bonus.c \
+             ft_prefix_bonus.c
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS_BONUS) $(LIBFT_A)
+$(NAME): $(OBJS) $(LIBFT_A)
+	cp $(LIBFT_A) $(NAME)
+	$(AR) $(NAME) $(OBJS)
+
+bonus: $(OBJS_BONUS) $(LIBFT_A)
 	cp $(LIBFT_A) $(NAME)
 	$(AR) $(NAME) $(OBJS_BONUS)
 
-bonus: $(NAME)
-
-%.o: %.c ft_printf_bonus.h $(LIBFT_A)
+%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT_A):
@@ -37,7 +47,7 @@ $(LIBFT_A):
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
