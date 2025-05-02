@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 13:58:52 by msbita            #+#    #+#             */
-/*   Updated: 2025/05/02 13:58:53 by msbita           ###   ########.fr       */
+/*   Created: 2025/05/02 16:27:04 by msbita            #+#    #+#             */
+/*   Updated: 2025/05/02 16:27:05 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,16 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct s_format
-{
-	int		total_len;
-	int		error;
-}			t_format;
-
-int		ft_printf(const char *format, ...);
-void	ft_handle_char(t_format *fmt, va_list args);
-void	ft_handle_string(t_format *fmt, va_list args);
-void	ft_handle_pointer(t_format *fmt, va_list args);
-void	ft_handle_int(t_format *fmt, va_list args);
-void	ft_handle_uint(t_format *fmt, va_list args);
-void	ft_handle_hex(t_format *fmt, va_list args, int uppercase);
-void	ft_handle_percent(t_format *fmt);
-int		ft_putchar_len(char c, t_format *fmt);
-int		ft_putstr_len(char *s, t_format *fmt);
-int		ft_putnbr_base(unsigned long n, char *base, t_format *fmt);
+int	ft_printf(const char *format, ...);
+int	ft_process_char(char c);
+int	ft_process_string(char *str);
+int	ft_process_pointer(void *ptr);
+int	ft_process_int(int num);
+int	ft_process_uint(unsigned int num);
+int	ft_process_hex(unsigned int num, int uppercase);
+int	ft_process_percent(void);
 
 #endif
