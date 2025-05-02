@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 16:30:45 by msbita            #+#    #+#             */
-/*   Updated: 2025/05/02 16:30:46 by msbita           ###   ########.fr       */
+/*   Created: 2025/05/02 16:53:52 by msbita            #+#    #+#             */
+/*   Updated: 2025/05/02 16:53:53 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*extract_line(char *buffer)
 	char	*line;
 
 	i = 0;
-	if (!buffer[i])
+	if (!buffer || !buffer[i])
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
@@ -62,6 +62,8 @@ static char	*save_remainder(char *buffer)
 	int		i;
 	char	*remainder;
 
+	if (!buffer)
+		return (NULL);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
