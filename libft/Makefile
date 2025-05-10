@@ -15,11 +15,14 @@ SRCS_PART2 = ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 
 SRCS_PRINTF = ft_printf.c conversions.c utils.c
 
+SRCS_GNL = get_next_line.c get_next_line_utils.c
+
 SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
              ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-             ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+             ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
+             get_next_line_bonus.c get_next_line_utils_bonus.c
 
-SRCS = $(SRCS_PART1) $(SRCS_PART2) $(SRCS_PRINTF)
+SRCS = $(SRCS_PART1) $(SRCS_PART2) $(SRCS_PRINTF) $(SRCS_GNL)
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)

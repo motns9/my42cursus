@@ -6,7 +6,7 @@
 /*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:49:55 by msbita            #+#    #+#             */
-/*   Updated: 2025/05/10 14:22:40 by msbita           ###   ########.fr       */
+/*   Updated: 2025/05/10 22:04:00 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdarg.h>
+
+/*My original libft with its functions + bonuses*/
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -70,7 +73,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* ft_printf functions */
-# include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_process_char(char c);
@@ -80,5 +82,17 @@ int		ft_process_int(int num);
 int		ft_process_uint(unsigned int num);
 int		ft_process_hex(unsigned int num, int uppercase);
 int		ft_process_percent(void);
+
+/* get_next_line functions */
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1024
+# endif
+
+char	*get_next_line(int fd);
+char	*gnl_strjoin(char *s1, char *s2);
 
 #endif
