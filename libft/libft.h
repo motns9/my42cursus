@@ -6,7 +6,7 @@
 /*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:49:55 by msbita            #+#    #+#             */
-/*   Updated: 2025/04/26 15:49:56 by msbita           ###   ########.fr       */
+/*   Updated: 2025/05/10 14:22:40 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,17 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* ft_printf functions */
+# include <stdarg.h>
+
+int		ft_printf(const char *format, ...);
+int		ft_process_char(char c);
+int		ft_process_string(char *str);
+int		ft_process_pointer(void *ptr);
+int		ft_process_int(int num);
+int		ft_process_uint(unsigned int num);
+int		ft_process_hex(unsigned int num, int uppercase);
+int		ft_process_percent(void);
 
 #endif
