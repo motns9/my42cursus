@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed-youssefsbita <mohamed-youssefsb    +#+  +:+       +#+        */
+/*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 16:30:40 by msbita            #+#    #+#             */
-/*   Updated: 2025/05/02 23:56:50 by mohamed-you      ###   ########.fr       */
+/*   Updated: 2025/05/10 14:01:58 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

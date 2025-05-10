@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 15:49:55 by msbita            #+#    #+#             */
-/*   Updated: 2025/05/08 19:52:58 by marvin           ###   ########.fr       */
+/*   Updated: 2025/04/26 15:49:56 by msbita           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdarg.h>
 
-/* Fonctions libft de base */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -55,17 +53,6 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-/* Fonctions ft_printf */
-int		ft_printf(const char *format, ...);
-int		ft_process_char(char c);
-int		ft_process_string(char *str);
-int		ft_process_pointer(void *ptr);
-int		ft_process_int(int num);
-int		ft_process_uint(unsigned int num);
-int		ft_process_hex(unsigned int num, int uppercase);
-int		ft_process_percent(void);
-
-/* Fonctions bonus de la libft */
 typedef struct s_list
 {
 	void			*content;
