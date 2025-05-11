@@ -1,25 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msbita <msbita@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/11 09:59:43 by msbita            #+#    #+#             */
+/*   Updated: 2025/05/11 10:00:43 by msbita           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+static void	sort_dispatcher(t_state *state)
+{
+	if (state->a->size == 2)
+	{
+		if (state->a->data[0] > state->a->data[1])
+			sa(state, 1);
+	}
+	else if (state->a->size == 3)
+		sort_three(state);
+	else if (state->a->size == 4)
+		sort_four(state);
+	else if (state->a->size == 5)
+		sort_five(state);
+	else
+		sort_big(state);
+}
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_state	state;
 
-	if (argc == 1)
+	if (argc < 2)
 		return (0);
-	a = init_stack(argc - 1);
-	b = init_stack(argc - 1);
-	if (!a || !b)
-	{
-		free_stack(a);
-		free_stack(b);
-		return (1);
-	}
-	if (!parse_args(a, argc, argv))
-		exit_error(a, b);
-	if (!is_sorted(a))
-		sort_stack(a, b);
-	free_stack(a);
-	free_stack(b);
+	if (!parse_args(argc, argv, &state))
+		error_exit();
+	if (!is_sorted(state.a))
+		sort_dispatcher(&state);
+	free_state(&state);
 	return (0);
 }
